@@ -18,6 +18,7 @@ public:
 		gameState = FlyGameState::None;
 		gAcCode = ac;
 	}
+	FlyGameManager() { gameState = FlyGameState::None; };
 public:
 	CC_SYNTHESIZE(FlyGameState, gameState, GameState);
 	CC_SYNTHESIZE(int64_t, gID, GroupId);
@@ -29,7 +30,10 @@ public:
 private:
 	std::vector<Player> players;
 	std::map<std::string, XX_Callback_INT64> gameCmd;
+	std::vector<Timer> allTimer;
 private://func
 	void onStartGame(int64_t qid);
 	void onJoinGame(int64_t qid);
+	void stopTimer(int id);
+	void sendGameGroupMsg(const char *msg);
 };

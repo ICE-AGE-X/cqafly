@@ -2,6 +2,7 @@
 #include "cqp.h"
 #include "stdafx.h"
 #include "util.h"
+#include "FlyGameManager.h"
 class MyMain
 {
 public:
@@ -14,14 +15,13 @@ public:
 	//收到群聊消息
 	void onRecGroupMsg(int32_t subType, int32_t sendTime, int64_t fromGroup, int64_t fromQQ, const char *fromAnonymous, const char *msg, int32_t font);
 private:
+	MyMain(){};
 	//发送私聊消息
 	void sendPrivateMsg(const char *msg, int64_t qqid); 
 	//发送群聊消息
 	void sendGroupMsg(const char *msg, int64_t qqid);
 	int acCode = 0;
 	void loadMenuConfig();
-	void xLog(const char *msg);
-	void xLog(int64_t qqid, const char *msg);
-	FILE * logF=nullptr;
-	char logBuf[10 * 1024];
+private://
+	FlyGameManager fgm;
 };

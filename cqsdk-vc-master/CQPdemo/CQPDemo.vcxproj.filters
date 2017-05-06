@@ -54,6 +54,9 @@
     <ClInclude Include="FlyGameManager.h">
       <Filter>Source Files\myWorkSpace\flygame</Filter>
     </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>Source Files\myWorkSpace\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="appmain.cpp">

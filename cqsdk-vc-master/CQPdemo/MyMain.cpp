@@ -4,8 +4,6 @@
 static MyMain * mInstance=nullptr;
 MyMain::~MyMain()
 {
-	delete logF;
-	logF = nullptr;
 }
 MyMain * MyMain::getInstance()
 {
@@ -23,6 +21,8 @@ void MyMain::destroyInstance()
 void MyMain::setAcCode(int ac)
 {
 	acCode = ac;
+	fgm.setAcCode(acCode);
+	fgm.initCmd();
 }
 
 void MyMain::onRecPrivateMsg(int32_t subType, int32_t sendTime, int64_t fromQQ, const char * msg, int32_t font)
@@ -33,7 +33,9 @@ void MyMain::onRecPrivateMsg(int32_t subType, int32_t sendTime, int64_t fromQQ, 
 
 void MyMain::onRecGroupMsg(int32_t subType, int32_t sendTime, int64_t fromGroup, int64_t fromQQ, const char * fromAnonymous, const char * msg, int32_t font)
 {
-	sendGroupMsg(msg, fromGroup);
+	//sendGroupMsg(msg, fromGroup);
+	fgm.setGroupId(fromGroup);
+	fgm.onRecCmd(msg, fromQQ);
 }
 
 void MyMain::sendPrivateMsg(const char * msg, int64_t qqid)
@@ -54,18 +56,18 @@ void MyMain::loadMenuConfig()
 	fclose(f);
 }
 
-void MyMain::xLog(const char * msg)
-{
-	if (logF == nullptr)
-		logF = fopen("xlog.txt", "a");
-	fwrite(msg, strlen(msg), 1, logF);
-	fclose(logF);
-	logF = nullptr;
-}
-
-void MyMain::xLog(int64_t qqid, const char * msg)
-{
-	memset(logBuf, 0, 10 * 1024);
-	sprintf(logBuf, "%lld::%s\n", qqid,msg);
-	xLog(logBuf);
-}
+//void MyMain::xLog(const char * msg)
+//{
+//	if (logF == nullptr)
+//		logF = fopen("xlog.txt", "a");
+//	fwrite(msg, strlen(msg), 1, logF);
+//	fclose(logF);
+//	logF = nullptr;
+//}
+//
+//void MyMain::xLog(int64_t qqid, const char * msg)
+//{
+//	memset(logBuf, 0, 10 * 1024);
+//	sprintf(logBuf, "%lld::%s\n", qqid,msg);
+//	xLog(logBuf);
+//}
