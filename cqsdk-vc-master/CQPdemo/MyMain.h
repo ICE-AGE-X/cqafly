@@ -1,6 +1,7 @@
 #pragma once
 #include "cqp.h"
 #include "stdafx.h"
+#include "util.h"
 class MyMain
 {
 public:

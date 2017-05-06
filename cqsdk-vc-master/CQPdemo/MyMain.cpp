@@ -59,14 +59,13 @@ void MyMain::xLog(const char * msg)
 	if (logF == nullptr)
 		logF = fopen("xlog.txt", "a");
 	fwrite(msg, strlen(msg), 1, logF);
-	fflush(logF);
+	fclose(logF);
+	logF = nullptr;
 }
 
 void MyMain::xLog(int64_t qqid, const char * msg)
 {
 	memset(logBuf, 0, 10 * 1024);
-	sprintf(logBuf, "%ld::", qqid);
-	xLog(logBuf);
-	sprintf(logBuf, "%s\n", msg);
+	sprintf(logBuf, "%lld::%s\n", qqid,msg);
 	xLog(logBuf);
 }

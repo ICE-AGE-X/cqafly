@@ -22,6 +22,12 @@
     <Filter Include="Source Files\myWorkSpace">
       <UniqueIdentifier>{6f636761-0e2f-406c-a4c4-f13e02363e8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\myWorkSpace\util">
+      <UniqueIdentifier>{c425d4a6-0799-4834-80db-75da07f79f39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\myWorkSpace\flygame">
+      <UniqueIdentifier>{f8201aa0-7106-4745-acc7-ae055267884f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appmain.h">
@@ -39,6 +45,15 @@
     <ClInclude Include="MyMain.h">
       <Filter>Source Files\myWorkSpace</Filter>
     </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>Source Files\myWorkSpace\util</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\myWorkSpace\flygame</Filter>
+    </ClInclude>
+    <ClInclude Include="FlyGameManager.h">
+      <Filter>Source Files\myWorkSpace\flygame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="appmain.cpp">
@@ -52,6 +67,12 @@
     </ClCompile>
     <ClCompile Include="MyMain.cpp">
       <Filter>Source Files\myWorkSpace</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\myWorkSpace\flygame</Filter>
+    </ClCompile>
+    <ClCompile Include="FlyGameManager.cpp">
+      <Filter>Source Files\myWorkSpace\flygame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
